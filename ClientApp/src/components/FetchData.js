@@ -17,7 +17,7 @@ export class FetchData extends Component {
       <table className='table table-striped' aria-labelledby="tabelLabel">
         <thead>
           <tr>
-            <th>Date</th>
+            <th>Name</th>
             <th>Temp. (C)</th>
             <th>Temp. (F)</th>
             <th>Summary</th>
@@ -25,8 +25,8 @@ export class FetchData extends Component {
         </thead>
         <tbody>
           {forecasts.map(forecast =>
-            <tr key={forecast.date}>
-              <td>{forecast.date}</td>
+            <tr key={forecast.temperatureC}>
+              <td>{forecast.name}</td>
               <td>{forecast.temperatureC}</td>
               <td>{forecast.temperatureF}</td>
               <td>{forecast.summary}</td>
