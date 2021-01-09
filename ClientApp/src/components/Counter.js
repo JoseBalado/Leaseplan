@@ -17,15 +17,32 @@ export class Counter extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Counter</h1>
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Pick currency 1:
+          <select value={this.state.currency1} onChange={this.handleChange}>
+            <option value="USD">United States Dollar</option>
+            <option value="EUR">Euro</option>
+            <option value="GBP">British Pound Sterling</option>
+            <option value="CHF">Swiss Franc</option>
+          </select>
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <label>
+          Pick currency 2:
+          <select value={this.state.currency2} onChange={this.handleChange}>
+            <option value="USD">United States Dollar</option>
+            <option value="EUR">Euro</option>
+            <option value="GBP">British Pound Sterling</option>
+            <option value="CHF">Swiss Franc</option>
+          </select>
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
 
-        <p>This is a simple example of a React component.</p>
-
-        <p aria-live="polite">Current count: <strong>{this.state.currentCount}</strong></p>
-
-        <button className="btn btn-primary" onClick={this.incrementCounter}>Increment</button>
-      </div>
+        <div>
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
     );
   }
 }
