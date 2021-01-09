@@ -8,30 +8,29 @@ export class Counter extends Component {
     this.state = { currentCount: 0 };
     this.incrementCounter = this.incrementCounter.bind(this);
 
-    this.handleChange = this.handleChange.bind(this);
     this.handleChangeCurrency1 = this.handleChangeCurrency1.bind(this);
-    this.handleChangeValue1 = this.handleChangeValue1.bind(this);
+    this.handleChangeCurrency2 = this.handleChangeCurrency2.bind(this);
+    this.handleChangeValue = this.handleChangeValue.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    console.log(event)
-    console.log(event.target.value)
   }
 
   handleChangeCurrency1(event) {
     console.log(event.target.value)
   }
 
-  handleChangeValue1(event) {
+  handleChangeCurrency2(event) {
+    console.log(event)
+    console.log(event.target.value)
+  }
+
+  handleChangeValue(event) {
     console.log(event.target.value)
     this.setState({value1: event.target.value});
   }
 
   handleSubmit(event) {
     var exchangeRate = 0.5;
-    alert('Your favorite flavor is: ' + (this.state.value1 * exchangeRate));
-    this.setState({value2: event.target.value});
+    this.setState({result: this.state.value1 * exchangeRate});
     event.preventDefault();
   }
 
@@ -56,7 +55,7 @@ export class Counter extends Component {
         <hr />
         <label>
           To currency:
-          <select value={this.state.currency2} onChange={this.handleChange}>
+          <select value={this.state.currency2} onChange={this.handleChangeCurrency2}>
             <option value="USD">United States Dollar</option>
             <option value="EUR">Euro</option>
             <option value="GBP">British Pound Sterling</option>
@@ -66,12 +65,12 @@ export class Counter extends Component {
         <hr />
         <label>
           Amount:
-          <input type="text" value={this.state.value1} onChange={this.handleChangeValue1} />
+          <input type="text" value={this.state.value1} onChange={this.handleChangeValue} />
         </label>
         <hr />
         <label>
           Result:
-          <input type="text" value={this.state.value2} />
+          <input type="text" value={this.state.result} />
         </label>
 
         <div>
