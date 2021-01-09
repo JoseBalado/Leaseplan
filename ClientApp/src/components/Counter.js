@@ -17,11 +17,13 @@ export class Counter extends Component {
   handleChangeCurrency1(event) {
     console.log(event)
     console.log(event.target.value)
+    this.setState({currency1: event.target.value});
   }
 
   handleChangeCurrency2(event) {
     console.log(event)
     console.log(event.target.value)
+    this.setState({currency2: event.target.value});
   }
 
   handleChangeValue(event) {
@@ -30,6 +32,7 @@ export class Counter extends Component {
   }
 
   handleSubmit(event) {
+    console.log("State: ", this.state);
     var exchangeRate = 0.5;
     this.setState({result: this.state.value * exchangeRate});
     event.preventDefault();
