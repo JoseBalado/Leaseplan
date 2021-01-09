@@ -9,15 +9,29 @@ export class Counter extends Component {
     this.incrementCounter = this.incrementCounter.bind(this);
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeCurrency1 = this.handleChangeCurrency1.bind(this);
+    this.handleChangeValue1 = this.handleChangeValue1.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    console.log(event)
+    console.log(event.target.value)
+  }
+
+  handleChangeCurrency1(event) {
+    console.log(event.target.value)
+  }
+
+  handleChangeValue1(event) {
+    console.log(event.target.value)
+    this.setState({value1: event.target.value});
   }
 
   handleSubmit(event) {
-    alert('Your favorite flavor is: ' + this.state.value);
+    var exchangeRate = 0.5;
+    alert('Your favorite flavor is: ' + (this.state.value1 * exchangeRate));
+    this.setState({value2: event.target.value});
     event.preventDefault();
   }
 
@@ -31,28 +45,37 @@ export class Counter extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Pick currency 1:
-          <select value={this.state.currency1} onChange={this.handleChange}>
+          From currency :
+          <select value={this.state.currency1} onChange={this.handleChangeCurrency1}>
             <option value="USD">United States Dollar</option>
             <option value="EUR">Euro</option>
             <option value="GBP">British Pound Sterling</option>
             <option value="CHF">Swiss Franc</option>
           </select>
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
         </label>
+        <hr />
         <label>
-          Pick currency 2:
+          To currency:
           <select value={this.state.currency2} onChange={this.handleChange}>
             <option value="USD">United States Dollar</option>
             <option value="EUR">Euro</option>
             <option value="GBP">British Pound Sterling</option>
             <option value="CHF">Swiss Franc</option>
           </select>
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <hr />
+        <label>
+          Amount:
+          <input type="text" value={this.state.value1} onChange={this.handleChangeValue1} />
+        </label>
+        <hr />
+        <label>
+          Result:
+          <input type="text" value={this.state.value2} />
         </label>
 
         <div>
-          <input type="submit" value="Submit" />
+          <input className="btn btn-primary" type="submit" value="Submit" />
         </div>
       </form>
     );
