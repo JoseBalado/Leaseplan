@@ -15,6 +15,7 @@ export class Counter extends Component {
   }
 
   handleChangeCurrency1(event) {
+    console.log(event)
     console.log(event.target.value)
   }
 
@@ -25,12 +26,12 @@ export class Counter extends Component {
 
   handleChangeValue(event) {
     console.log(event.target.value)
-    this.setState({value1: event.target.value});
+    this.setState({value: event.target.value});
   }
 
   handleSubmit(event) {
     var exchangeRate = 0.5;
-    this.setState({result: this.state.value1 * exchangeRate});
+    this.setState({result: this.state.value * exchangeRate});
     event.preventDefault();
   }
 
@@ -65,7 +66,7 @@ export class Counter extends Component {
         <hr />
         <label>
           Amount:
-          <input type="text" value={this.state.value1} onChange={this.handleChangeValue} />
+          <input type="text" value={this.state.value} onChange={this.handleChangeValue} />
         </label>
         <hr />
         <label>
