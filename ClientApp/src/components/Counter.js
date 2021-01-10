@@ -5,9 +5,7 @@ export class Counter extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { currentCount: 0 };
-    this.incrementCounter = this.incrementCounter.bind(this);
-
+    this.state = {};
     this.handleChangeCurrency1 = this.handleChangeCurrency1.bind(this);
     this.handleChangeCurrency2 = this.handleChangeCurrency2.bind(this);
     this.handleChangeValue = this.handleChangeValue.bind(this);
@@ -34,12 +32,6 @@ export class Counter extends Component {
     const exchangeRate = await this.populateWeatherData();
     this.setState({result: this.state.value * exchangeRate.value, exchangeRate});
     console.log("State: ", this.state);
-  }
-
-  incrementCounter() {
-    this.setState({
-      currentCount: this.state.currentCount + 1
-    });
   }
 
   async populateWeatherData() {
