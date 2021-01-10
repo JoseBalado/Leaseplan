@@ -27,10 +27,48 @@ namespace Leaseplan.Controllers
         [Route("{currencyCode1}/{currencyCode2}")]
         public Object Get(string currencyCode1, string currencyCode2)
         {
+            var currencyCode = $"{currencyCode1}/{currencyCode2}";
+            double value;
+            switch (currencyCode)
+            {
+                case "USD/USD":
+                    value = 1.0;
+                    break;
+                case "USD/EUR":
+                    value = 0.82;
+                    break;
+                case "USD/GBP":
+                    value = 0.74;
+                    break;
+
+                case "EUR/EUR":
+                    value = 1.0;
+                    break;
+                case "EUR/USD":
+                    value = 1.22;
+                    break;
+                case "EUR/GBP":
+                    value = 0.90;
+                    break;
+
+                case "GBP/GBP":
+                    value = 1.0;
+                    break;
+                case "GBP/USD":
+                    value = 1.36;
+                    break;
+                case "GBP/EUR":
+                    value = 1.11;
+                    break;
+
+                default:
+                    value = 1.0;
+                    break;
+            }
             return new
             {
-                CurrencyCode = "GBP/EUR",
-                Value = 23.5
+                CurrencyCode = currencyCode,
+                Value = value
             };
         }
     }

@@ -50,7 +50,6 @@ export class Counter extends Component {
             <option value="USD">United States Dollar</option>
             <option value="EUR">Euro</option>
             <option value="GBP">British Pound Sterling</option>
-            <option value="CHF">Swiss Franc</option>
           </select>
         </label>
         <hr />
@@ -60,7 +59,6 @@ export class Counter extends Component {
             <option value="USD">United States Dollar</option>
             <option value="EUR">Euro</option>
             <option value="GBP">British Pound Sterling</option>
-            <option value="CHF">Swiss Franc</option>
           </select>
         </label>
         <hr />
