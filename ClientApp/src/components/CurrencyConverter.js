@@ -68,19 +68,27 @@ export class CurrencyConverter extends Component {
             </select>
           </div>
         </div>
+        <div class="form-group row">
+          <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">
+            Amount
+          </label>
+          <div class="col-sm-4">
+            <input class="form-control" type="text" value={this.state.value} onChange={this.handleChangeValue} />
+          </div>
+        </div>
         <hr />
-        <label>
-          Amount:
-          <input class="form-control" type="text" value={this.state.value} onChange={this.handleChangeValue} />
-        </label>
-        <hr />
-        <label>
-          Result:
-          <input class="form-control" type="text" value={this.state.result} readOnly />
-        </label>
-
-        <div>
-          <input className="btn btn-primary" type="submit" value="Submit" />
+        <div class="form-group row">
+          <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">
+            Result
+          </label>
+          <div class="col-sm-4">
+            <input class="form-control" type="text" value={this.state.result} readOnly />
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <input className="btn btn-primary" type="submit" value="Submit" />
+          </div>
         </div>
       </form>
     );
