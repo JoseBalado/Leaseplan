@@ -24,6 +24,7 @@ export class Home extends Component {
         <ul>
           <li><code>$ cd Leaseplan/</code></li>
           <li><code>$ dotnet run</code></li>
+          <li>Open this url in the browser: <code>https://localhost:5001/</code></li>
         </ul>
       </div>
     );
