@@ -44,23 +44,30 @@ export class CurrencyConverter extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          From currency :
-          <select class="form-control" value={this.state.currency1} onChange={this.handleChangeCurrency1}>
-            <option value="USD">United States Dollar</option>
-            <option value="EUR">Euro</option>
-            <option value="GBP">British Pound Sterling</option>
-          </select>
-        </label>
-        <hr />
-        <label>
-          To currency:
-          <select class="form-control" value={this.state.currency2} onChange={this.handleChangeCurrency2}>
-            <option value="USD">United States Dollar</option>
-            <option value="EUR">Euro</option>
-            <option value="GBP">British Pound Sterling</option>
-          </select>
-        </label>
+        <div class="form-group row">
+          <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">
+            From currency
+          </label>
+          <div class="col-sm-10">
+            <select class="form-control form-control-lg" value={this.state.currency1} onChange={this.handleChangeCurrency1}>
+              <option value="USD">United States Dollar</option>
+              <option value="EUR">Euro</option>
+              <option value="GBP">British Pound Sterling</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">
+            To currency
+          </label>
+          <div class="col-sm-10">
+            <select class="form-control form-control-lg" value={this.state.currency2} onChange={this.handleChangeCurrency2}>
+              <option value="USD">United States Dollar</option>
+              <option value="EUR">Euro</option>
+              <option value="GBP">British Pound Sterling</option>
+            </select>
+          </div>
+        </div>
         <hr />
         <label>
           Amount:
