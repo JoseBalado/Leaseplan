@@ -25,7 +25,7 @@ namespace Leaseplan.Controllers
 
         [HttpGet]
         [Route("{currencyCode1}/{currencyCode2}")]
-        public Object Get(string currencyCode1, string currencyCode2)
+        public CurrencyExchange Get(string currencyCode1, string currencyCode2)
         {
             var currencyCode = $"{currencyCode1}/{currencyCode2}";
             double value;
@@ -65,7 +65,8 @@ namespace Leaseplan.Controllers
                     value = 1.0;
                     break;
             }
-            return new
+
+            return new CurrencyExchange
             {
                 CurrencyCode = currencyCode,
                 Value = value
