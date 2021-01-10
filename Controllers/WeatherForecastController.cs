@@ -24,7 +24,8 @@ namespace Leaseplan.Controllers
         }
 
         [HttpGet]
-        public Object Get()
+        [Route("{currencyCode1}/{currencyCode2}")]
+        public Object Get(string currencyCode1, string currencyCode2)
         {
             return new
             {
