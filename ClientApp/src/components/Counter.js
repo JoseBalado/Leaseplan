@@ -37,7 +37,7 @@ export class Counter extends Component {
 
   async populateWeatherData(currencyCode1, currencyCode2) {
     console.log("Currency Code:", currencyCode1, currencyCode2);
-    const response = await fetch(`weatherforecast/${currencyCode1}/${currencyCode2}`);
+    const response = await fetch(`currencyexchange/${currencyCode1}/${currencyCode2}`);
     return await response.json();
   }
 
