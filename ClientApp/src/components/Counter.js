@@ -5,7 +5,7 @@ export class Counter extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { currency1: "GBP", currency2: "EUR" };
     this.handleChangeCurrency1 = this.handleChangeCurrency1.bind(this);
     this.handleChangeCurrency2 = this.handleChangeCurrency2.bind(this);
     this.handleChangeValue = this.handleChangeValue.bind(this);
@@ -29,12 +29,13 @@ export class Counter extends Component {
 
   async handleSubmit(event) {
     event.preventDefault();
-    const exchangeRate = await this.populateWeatherData();
+    const exchangeRate = await this.populateWeatherData(`${this.state.currency1}/${this.state.currency2}`);
     this.setState({result: this.state.value * exchangeRate.value, exchangeRate});
     console.log("State: ", this.state);
   }
 
-  async populateWeatherData() {
+  async populateWeatherData(currencyCode) {
+    console.log("Currency Code:", currencyCode);
     const response = await fetch('weatherforecast');
     return await response.json();
   }
