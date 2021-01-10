@@ -15,13 +15,11 @@ export class Counter extends Component {
   }
 
   handleChangeCurrency1(event) {
-    console.log(event)
     console.log(event.target.value)
     this.setState({currency1: event.target.value});
   }
 
   handleChangeCurrency2(event) {
-    console.log(event)
     console.log(event.target.value)
     this.setState({currency2: event.target.value});
   }
@@ -31,17 +29,22 @@ export class Counter extends Component {
     this.setState({value: event.target.value});
   }
 
-  handleSubmit(event) {
-    console.log("State: ", this.state);
-    var exchangeRate = 0.5;
-    this.setState({result: this.state.value * exchangeRate});
+  async handleSubmit(event) {
     event.preventDefault();
+    const exchangeRate = await this.populateWeatherData();
+    this.setState({result: this.state.value * exchangeRate.value, exchangeRate});
+    console.log("State: ", this.state);
   }
 
   incrementCounter() {
     this.setState({
       currentCount: this.state.currentCount + 1
     });
+  }
+
+  async populateWeatherData() {
+    const response = await fetch('weatherforecast');
+    return await response.json();
   }
 
   render() {
