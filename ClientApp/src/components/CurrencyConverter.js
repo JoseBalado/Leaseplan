@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-export class Counter extends Component {
-  static displayName = Counter.name;
+export class CurrencyConverter extends Component {
+  static displayName = CurrencyConverter.name;
 
   constructor(props) {
     super(props);
@@ -37,7 +37,7 @@ export class Counter extends Component {
 
   async populateWeatherData(currencyCode1, currencyCode2) {
     console.log("Currency Code:", currencyCode1, currencyCode2);
-    const response = await fetch(`currencyexchange/${currencyCode1}/${currencyCode2}`);
+    const response = await fetch(`CurrencyExchange/${currencyCode1}/${currencyCode2}`);
     return await response.json();
   }
 
