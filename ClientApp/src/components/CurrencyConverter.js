@@ -46,7 +46,7 @@ export class CurrencyConverter extends Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           From currency :
-          <select value={this.state.currency1} onChange={this.handleChangeCurrency1}>
+          <select class="form-control" value={this.state.currency1} onChange={this.handleChangeCurrency1}>
             <option value="USD">United States Dollar</option>
             <option value="EUR">Euro</option>
             <option value="GBP">British Pound Sterling</option>
@@ -55,7 +55,7 @@ export class CurrencyConverter extends Component {
         <hr />
         <label>
           To currency:
-          <select value={this.state.currency2} onChange={this.handleChangeCurrency2}>
+          <select class="form-control" value={this.state.currency2} onChange={this.handleChangeCurrency2}>
             <option value="USD">United States Dollar</option>
             <option value="EUR">Euro</option>
             <option value="GBP">British Pound Sterling</option>
@@ -64,12 +64,12 @@ export class CurrencyConverter extends Component {
         <hr />
         <label>
           Amount:
-          <input type="text" value={this.state.value} onChange={this.handleChangeValue} />
+          <input class="form-control" type="text" value={this.state.value} onChange={this.handleChangeValue} />
         </label>
         <hr />
         <label>
           Result:
-          <input type="text" value={this.state.result} />
+          <input class="form-control" type="text" value={this.state.result} readOnly />
         </label>
 
         <div>
